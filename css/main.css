@@ -3,10 +3,13 @@
 /* ==========================================================================
    Custom styles
    ========================================================================== */
-
-body, #cvpreview{
-  padding-top: 50px;
-  }
+ .navbar {
+ background: #5e6871;
+ height: 80px;
+ }
+ .navbar-header a{
+ color: #fff;
+ }
 .salary_expectation{
  display: block;
  width: 100%;
