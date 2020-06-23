@@ -4,7 +4,7 @@
    Custom styles
    ========================================================================== */
 
-body {
+body, #cvpreview{
   padding-top: 50px;
   }
 .salary_expectation{
@@ -32,10 +32,18 @@ body {
  height: 32px;
  border-radius: 4px;
 }
+.templatebtn{
+ border: none;
+ width: 30%;
+ height: 32px;
+ border-radius: 4px;
+}
 .formbuilder-required{
  color: red;
 }
-
+#cvpreview{
+  padding-top: 50px;
+  }
 
 
 
