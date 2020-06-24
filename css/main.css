@@ -45,5 +45,25 @@
  color: red;
 }
 #cvpreview{
-  padding-top: 50px;
-  }
+ padding-top: 50px;
+}
+.jumbotron {
+ background-color: #fff !important;
+}
+.trumbowyg-box{
+ border-radius: 4px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

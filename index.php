@@ -31,7 +31,7 @@ WYSIWYG editor https://github.com/Alex-D/Trumbowyg------------------------------
 <div class="container">
     <div class="rendered-form">
         <div class="formbuilder-text form-group field-full_name">
-            <label for="full_name" class="formbuilder-text-label">Your Full Name<span class="formbuilder-required"> *</span></label>
+            <label for="full_name" class="formbuilder-text-label">Full Name<span class="formbuilder-required"> *</span></label>
             <input type="text" class="form-control" name="full_name" id="full_name" required="required" aria-required="true" />
         </div>
         <div class="formbuilder-text form-group field-location"><label for="location" class="formbuilder-text-label">Your Location<span class="formbuilder-required"> *</span></label><input type="text" class="form-control" name="location" id="location" /></div>
@@ -48,7 +48,7 @@ WYSIWYG editor https://github.com/Alex-D/Trumbowyg------------------------------
             <input type="text" class="form-control" name="candidate_availability" placeholder="Example: 1 month" id="candidate_availability" required="required" aria-required="true" />
         </div><br>
         <div class="formbuilder-textarea form-group field-skills_competences">
-            <label for="skills_competences" class="formbuilder-textarea-label">Summarize Your Skills and Competences<span class="formbuilder-required"> *</span></label>
+            <label for="skills_competences" class="formbuilder-textarea-label">Skills and Competences<span class="formbuilder-required"> *</span></label>
             <textarea type="textarea" rows="8" cols="50" class="form-control" name="skills_competences" id="skills_competences" required="required" aria-required="true"></textarea>
         </div>
         <div class="formbuilder-checkbox-group form-group field-technical_skills">
@@ -68,7 +68,7 @@ WYSIWYG editor https://github.com/Alex-D/Trumbowyg------------------------------
                 </div>
             </div>
         </div>
-        <div class="formbuilder-text form-group field-comment"><label for="comment" class="formbuilder-text-label">Any Comment?</label><input type="text" class="form-control"  placeholder="Comments and Reactions" name="comment" id="comments" /></div>
+        <div class="formbuilder-text form-group field-comment"><label for="comment" class="formbuilder-text-label">Any Comment or Recommendation?</label><input type="text" class="form-control"  placeholder="Comments and Reactions" name="comment" id="comments" /></div>
 		<center><input type="submit" class="btn-primary" name="submit" value="Preview" id="submitbtn" /></center>
     </div>
 </div>
