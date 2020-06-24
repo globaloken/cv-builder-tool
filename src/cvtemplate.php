@@ -17,7 +17,7 @@ if(confirm_ajax()){
 <table class="table" id="tabletemplate">
   <thead class="thead-dark">
     <td>
-      <h4>Candidate CV</h4>
+      <h4>CV of '.$fname.'</h4>
     </td>
   </thead>
   <tbody>
