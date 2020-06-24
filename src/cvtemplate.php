@@ -16,9 +16,9 @@ if(confirm_ajax()){
  echo'
 <table class="table" id="tabletemplate">
   <thead class="thead-dark">
-    <tr>
-      <th scope="col"><h2>Candidate CV</h2></th>
-    </tr>
+    <td>
+      <h4>CV of '.$fname.'</h4>
+    </td>
   </thead>
   <tbody>
     <tr>
@@ -56,6 +56,7 @@ if(confirm_ajax()){
   </tbody>
 </table>';
 }
+// functions authenticates an ajax call
 function confirm_ajax() {
   return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
