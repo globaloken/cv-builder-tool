@@ -1,8 +1,9 @@
 <!--
 ****************CV Builder by Okiria Paul Oken 6/22/2020*******************************************************
 ****************Care of bothofus.se****************************************************************************
-----------------Credit https://github.com/DoersGuild/jQuery.print----------------------------------------------
-----------------Project Source Code https://github.com/globaloken/cv-builder-tool------------------------------
+****************Credits****************************************************************************************
+PDF printing https://github.com/DoersGuild/jQuery.print--------------------------------------------------------
+WYSIWYG editor https://github.com/Alex-D/Trumbowyg-------------------------------------------------------------
 -->
 <!doctype html>
 <html lang="en">
@@ -12,8 +13,8 @@
         <title>CV Builder Pro</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/trumbowyg.min.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
 	
@@ -21,12 +22,6 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="#">CV Builder Pro</a>
         </div>
       </div>
@@ -51,7 +46,7 @@
         <div class="formbuilder-text form-group field-candidate_availability">
             <label for="candidate_availability" class="formbuilder-text-label">When Are You Available?<span class="formbuilder-required"> *</span></label>
             <input type="text" class="form-control" name="candidate_availability" placeholder="Example: 1 month" id="candidate_availability" required="required" aria-required="true" />
-        </div>
+        </div><br>
         <div class="formbuilder-textarea form-group field-skills_competences">
             <label for="skills_competences" class="formbuilder-textarea-label">Summarize Your Skills and Competences<span class="formbuilder-required"> *</span></label>
             <textarea type="textarea" rows="8" cols="50" class="form-control" name="skills_competences" id="skills_competences" required="required" aria-required="true"></textarea>
@@ -80,9 +75,9 @@
 </div>
 
 <div class="container" id="cvpreview">
-<span id="cvtemplatebtns"><center>
- <button class="btn-danger templatebtn" id="closepreviewbtn" hidden>Close Preview</button>
- <button class="btn-success templatebtn" id="printpdfbtn" hidden>Save PDF</button>
+<span id="cvtemplatebtns" hidden><center>
+ <button class="btn-danger templatebtn" id="closepreviewbtn">Close Preview</button>
+ <button class="btn-success templatebtn" id="printpdfbtn">Save PDF</button>
 </center></span>
 </div>
 
@@ -93,9 +88,10 @@
   </footer>
 </div>
 	
-  <script src="js/vendor/jquery-1.11.2.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="js/vendor/trumbowyg.min.js"></script>
   <script src="js/vendor/jQuery.print.js"></script>
-  <script src="js/vendor/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
   <script>
   $(document).ready(function () {
@@ -123,28 +119,32 @@
             data: cvdata
         })
         .done(function (successResult) {
-			$('#closepreviewbtn').show();
-	        $('#printpdfbtn').show();
+			$('#cvtemplatebtns').removeAttr('hidden');
 			$('#cvpreview').prepend(successResult);
-			$('#formjumbotronid').hide();
+			$('#formjumbotronid').attr('hidden','true');
         })
 		.fail(function(errorResult){
 			alert('An Error Occured');
 	    });
+	   }else{
+		   alert('Fill all required fields');
 	   }
     });
 	
+	//preview button click listener
 	$('#closepreviewbtn').on('click', function () {
-			$('#closepreviewbtn').hide();
-	        $('#printpdfbtn').hide();
-			$('#formjumbotronid').show();
-			$('#tabletemplate').hide();
+			$('#cvtemplatebtns').attr('hidden','true');
+			$('#formjumbotronid').removeAttr('hidden');
+			$('#tabletemplate').attr('hidden','true');
 	});
+	
+	//print pdf button click listener
 	$('#printpdfbtn').click(function () {
 		$(".tabletemplate").print({
+			// options configurations for printing pdf document
         	globalStyles: true,
         	mediaPrint: false,
-        	noPrintSelector: "#cvtemplatebtns",
+        	noPrintSelector: "#cvtemplatebtns, footer",
         	iframe: true,
         	manuallyCopyFormValues: true,
         	deferred: $.Deferred(),
@@ -153,6 +153,7 @@
         	doctype: '<!doctype html>'
 		});
      });
+ $('#skills_competences').trumbowyg();
 });
   </script>
  </body>
